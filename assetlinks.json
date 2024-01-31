@@ -1,0 +1,9 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "Planet Gadget",
+      "package_name": "com.planetgadget.app",
+      "sha256_cert_fingerprints":
+      ["10:9B:4B:1E:DC:E7:ED:92:5A:2B:41:E6:CA:1B:9B:DE:63:B2:08:58:1C:F4:8D:D8:25:F4:9D:CD:5E:4D:BE:48"]
+    }
+  }]
