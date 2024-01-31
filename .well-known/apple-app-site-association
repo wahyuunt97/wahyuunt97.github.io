@@ -1,29 +1,14 @@
 {
-  "applinks":{
-    "apps":[
-       
-    ],
-    "details":[
-      {
-        "appIDs":[
-          "C2QXLCT66R.com.planetgadget.app"
-        ],
-        "components":[
-          {
-            "/":"/login",
-            "comment":"Matches URL with a path /login"
-          },
-          {
-            "/":"/product/*",
-            "comment":"Matches any URL with a path that starts with /product/."
-          },
-          {
-            "/":"/secret",
-            "exclude":true,
-            "comment":"Matches URL with a path /secret and instructs the system not to open it as a universal link."
-          }
-        ]
-      }
-    ]
+    "applinks": {
+      "apps": [],
+      "details": [
+        {
+          "appID": "C2QXLCT66R.com.planetgadget.app",
+          "paths": [
+            "/path/to/page1",
+            "/path/to/page2"
+          ]
+        }
+      ]
+    }
   }
-}
