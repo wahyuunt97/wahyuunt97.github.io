@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Planet Gadget App</title>
+</head>
+<body>
+    <h1>Redirecting to Planet Gadget App...</h1>
+
+    <script>
+        window.onload = function() {
+            // Define the deep link URL
+            const appUrl = "app://com.planetgadget.app/";
+
+            // Define the fallback URL for the app store if the app is not installed
+            const fallbackUrlAndroid = "https://play.google.com/store/apps/details?id=com.planetgadget.app";
+            const fallbackUrliOS = "https://apps.apple.com/app/id123456789"; // Replace with your actual App Store link
+
+            // Detect the platform
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            let fallbackUrl = fallbackUrlAndroid;
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                fallbackUrl = fallbackUrliOS;
+            }
+
+            // Try to open the app via deep link
+            window.location.href = appUrl;
+
+            // Set a timeout to redirect to the app store if the app isn't installed
+            setTimeout(function() {
+                window.location.href = fallbackUrl;
+            }, 2000); // Adjust the delay as needed
+        };
+    </script>
+</body>
+</html>
