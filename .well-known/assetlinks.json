@@ -1,5 +1,5 @@
 [{
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target" : { "namespace": "android_app", "package_name": "com.planetgadget.app",
-                 "sha256_cert_fingerprints": ["10:9B:4B:1E:DC:E7:ED:92:5A:2B:41:E6:CA:1B:9B:DE:63:B2:08:58:1C:F4:8D:D8:25:F4:9D:CD:5E:4D:BE:48"] }
+                 "sha256_cert_fingerprints": ["DD:B8:D2:67:88:30:BD:DA:92:4E:D6:93:39:1F:78:30:FA:1E:B7:51:96:3E:53:54:6B:B1:48:63:E4:D1:D7:4E"] }
   }]
