@@ -77425,7 +77425,7 @@ A.HV.prototype={
 R(a){var s=null,r=A.atD(s,A.aBl(B.X,B.Jr),!0),q=A.a([A.ars(s,s,s,B.Hc,B.He,B.aq,s,!1,s,!0,s,"/detail",!0,new A.a6n(),s,s,s,!0,!0,s,s,s,s,t.z)],t.RT),p=$.by(),o=t.c,n=t.Wo
 n=new A.wz(new A.bQ(s,o),new A.bQ(s,o),new A.bQ(s,o),A.aa6(),A.a([],t.EH),A.dy(s,s,s,t.X,t.xW),new A.ej(n),new A.ej(n),!1,!1)
 n.kS()
-return new A.yM(new A.wq(new A.GM(A.H9(p,n,s,t.M2),s),"Flutter Demo",r,q,s),B.NC,s)}}
+return new A.yM(new A.wq(new A.GM(A.H9(p,n,s,t.M2),s),"Wahyu Untoro Portfolio",r,q,s),B.NC,s)}}
 A.a6n.prototype={
 $0(){var s=null,r=$.by(),q=t.Wo
 q=new A.y4(new A.a85(),A.at0(!1),A.aFg(B.h,t.o),A.a([],t.EH),A.dy(s,s,s,t.X,t.xW),new A.ej(q),new A.ej(q),!1,!1)
