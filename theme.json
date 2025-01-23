@@ -1,6 +1,6 @@
 {
     "brightness": "light",
-    "primary": "##c41b4e",
+    "primary": "#c41b4e",
     "onPrimary": "#FFFFFF",
     "background": "#FEFBFF",
     "onBackground": "#1C1B1E"
