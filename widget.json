@@ -28,7 +28,7 @@
           },
           {
             "type": "sizedBox",
-            "height": "20"
+            "height": 20
           },
           {
             "type": "text",
@@ -41,7 +41,7 @@
           },
           {
             "type": "sizedBox",
-            "height": "20"
+            "height": 20
           },
           {
             "type": "elevatedButton",
