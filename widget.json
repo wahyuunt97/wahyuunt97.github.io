@@ -30,7 +30,7 @@
             "type": "elevatedButton",
             "onPressed": {
               "actionType": "navigates",
-              "page": "/work-page"
+              "page": "/sleep-page"
             },
             "child": {
               "type": "text",
