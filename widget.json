@@ -19,12 +19,29 @@
         "children": [
           {
             "type": "text",
-            "data": "Good night2",
+            "data": "Good night",
             "style": {
               "fontSize": 32,
               "fontWeight": "w800",
               "color": "#FFFFFF"
             }
+          },
+          {
+            "type": "sizedBox",
+            "height": "20"
+          },
+          {
+            "type": "text",
+            "data": "Anjingggg",
+            "style": {
+              "fontSize": 12,
+              "fontWeight": "w400",
+              "color": "#AAAAAA"
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": "20"
           },
           {
             "type": "elevatedButton",
