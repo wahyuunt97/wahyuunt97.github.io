@@ -1,0 +1,49 @@
+{
+  "type": "scaffold",
+  "theme": {
+    "brightness": "dark",
+    "primaryColor": "#0D1E50",
+    "accentColor": "#1B264F"
+  },
+  "body": {
+    "type": "customContainer",
+    "width": "infinity",
+    "height": 200,
+    "color": "#000000",
+    "child": {
+      "type": "sizedBox",
+      "child": {
+        "type": "column",
+        "crossAxisAlignment": "center",
+        "mainAxisSize": "max",
+        "children": [
+          {
+            "type": "text",
+            "data": "Good night2",
+            "style": {
+              "fontSize": 32,
+              "fontWeight": "w800",
+              "color": "#FFFFFF"
+            }
+          },
+          {
+            "type": "elevatedButton",
+            "onPressed": {
+              "actionType": "navigates",
+              "page": "/work-page"
+            },
+            "child": {
+              "type": "text",
+              "data": "Go to Home",
+              "style": {
+                "fontSize": 16,
+                "fontWeight": "w600",
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
