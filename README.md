@@ -14,7 +14,7 @@ minimum requirement :
 
 # Setup
 
-```json
+```bash
 flutter pub add tds_permission
 ```
 
@@ -54,7 +54,7 @@ enum TDSPermission {
 
 with .status, you can get status permission. that available status is `.isAvailable` ,`.isDenied` ,`.isReject` , `.etc`
 
-```json
+```dart
 var status = await TDSPermission("iOS", .notification).status()
 
 if (status[.location] == .isAvailable) {
@@ -64,7 +64,7 @@ if (status[.location] == .isAvailable) {
 
 ### Request Permission
 
-```json
+```dart
 TDSPermission("iOS", .camera).request({ (status) {
 	if (status == .isAvailable) {
 		//todo: handle if permission is available
