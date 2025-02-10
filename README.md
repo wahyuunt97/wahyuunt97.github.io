@@ -37,7 +37,7 @@ flutter pub add tds_permission
 
 ### Available Permission
 
-```json
+```
 enum TDSPermission {
 	location,
 	notification,
