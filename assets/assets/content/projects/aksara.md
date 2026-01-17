@@ -1,7 +1,7 @@
 ---
 timeline: Aug 2019
 priority: 65
-title: Aksara
+title: Aksara2
 thumbnail: /assets/images/projects/aksara_detail.png
 role: Game Designer & Programmer
 outcome: Top 10 DILo Festival 2019
