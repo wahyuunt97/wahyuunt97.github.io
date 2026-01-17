@@ -4,8 +4,10 @@
 # Enable local backend for development (remove for production)
 
 backend:
-  name: git-gateway
+  name: github
+  repo: wahyuunt97/wahyu_portfolio
   branch: main
+  base_url: https://decap-cms-oauth-firebase.vercel.app # Optional: Community hosted oauth gateway for testing
 
 # Media files will be stored in this folder
 media_folder: "assets/images/projects"
