@@ -7,7 +7,8 @@ backend:
   name: github
   repo: wahyuunt97/wahyu_portfolio
   branch: main
-  base_url: https://decap-cms-oauth-firebase.vercel.app # Optional: Community hosted oauth gateway for testing
+  branch: main
+  base_url: https://wahyuunt97-admin-g3j1.vercel.app
 
 # Media files will be stored in this folder
 media_folder: "assets/images/projects"
