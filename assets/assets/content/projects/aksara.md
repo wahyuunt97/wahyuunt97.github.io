@@ -3,7 +3,7 @@ timeline: Aug 2019
 priority: 65
 title: Aksara2
 thumbnail: /assets/images/projects/aksara_detail.png
-role: Game Designer & Programmer
+role: Game Designer & Programmersaas
 outcome: Top 10 DILo Festival 2019
 responsibility: Designed the game concept and developed all technical aspects,
   implementing motion detection for writing Balinese script.
