@@ -1,0 +1,33 @@
+{
+  "name": "Wahyu Untoro",
+  "bio": "Experienced Mobile & Game Developer specializing in Flutter, SwiftUI, and React Native. I bridge the gap between complex logic and engaging user experiences, from AR/IoT integrations to seamless e-commerce apps.",
+  "image": "assets/images/profile_picture.png",
+  "cv_file": "assets/cv/Wahyu_Resume_Game.pdf",
+  "tags": [
+    "Apple Developer Academy Graduate",
+    "Unity Certified Associate",
+    "Flutter Programmer"
+  ],
+  "experience": [
+    {
+      "company": "Hikaria by Timedoor",
+      "role": "Technical Support / Product Developer",
+      "duration": "Jul 2025 - Present",
+      "description": [
+        "Engineered and deployed an internal admin app for ticket validation, reducing manual errors and processing 394 guests in September using Flutter.",
+        "Automated daily OTA data reporting, successfully extracting and processing 70+ online orders per day.",
+        "Expanded product reach by publishing Hikaria to 20+ online travel platforms (OTAs), increasing visibility and contributing to sales growth."
+      ]
+    },
+    {
+      "company": "PT Timedoor Indonesia",
+      "role": "Mobile Developer",
+      "duration": "Jul 2019 - Present",
+      "description": [
+        "Supervised R&D experiments and supported four developers in evaluating new frameworks for faster and more stable project workflows.",
+        "Created internal tools and private Flutter packages to simplify repetitive tasks, helping developers speed up delivery timelines by 30%.",
+        "Planned, developed, and maintained multiple mobile applications for clients in Japan and Indonesia using Flutter, Kotlin, React Native, and Swift, resulting in an average of 30% reduction in development time for cross-platform projects."
+      ]
+    }
+  ]
+}

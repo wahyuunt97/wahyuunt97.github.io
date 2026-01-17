@@ -1,0 +1,120 @@
+# Decap CMS Configuration for Wahyu Portfolio
+# Documentation: https://decapcms.org/docs/
+
+# Enable local backend for development (remove for production)
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Media files will be stored in this folder
+media_folder: "assets/images/projects"
+public_folder: "/assets/images/projects"
+
+# Collections define the structure for different content types
+collections:
+  # ========================================
+  # PROJECTS COLLECTION
+  # ========================================
+  - name: "projects"
+    label: "Projects"
+    label_singular: "Project"
+    description: "Portfolio projects and case studies"
+    folder: "assets/content/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Project name/title"
+
+      - label: "Thumbnail Image"
+        name: "thumbnail"
+        widget: "image"
+        hint: "Main image for project card"
+        required: true
+
+      - label: "Role"
+        name: "role"
+        widget: "string"
+        hint: "Your role in this project (e.g., Lead Developer, UI Designer)"
+
+      - label: "Timeline"
+        name: "timeline"
+        widget: "string"
+        hint: "Project duration (e.g., Jan 2023 - Mar 2024)"
+
+      - label: "Outcome"
+        name: "outcome"
+        widget: "text"
+        hint: "Results achieved from this project"
+
+      - label: "Responsibility"
+        name: "responsibility"
+        widget: "text"
+        hint: "Key tasks and responsibilities"
+
+      - label: "Tech Stack"
+        name: "tech_stack"
+        widget: "list"
+        hint: "Technologies used in this project"
+        field:
+          label: "Technology"
+          name: "tech"
+          widget: "string"
+
+      - label: "Description"
+        name: "body"
+        widget: "markdown"
+        hint: "Detailed project description (supports markdown)"
+
+  # ========================================
+  # PROFILE SETTINGS
+  # ========================================
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "profile"
+        label: "Profile"
+        file: "assets/content/profile.json"
+        format: "json"
+        fields:
+          - label: "Name"
+            name: "name"
+            widget: "string"
+
+          - label: "Bio"
+            name: "bio"
+            widget: "text"
+            hint: "Short introduction about yourself"
+
+          - label: "Profile Image"
+            name: "image"
+            widget: "image"
+
+          - label: "CV File"
+            name: "cv_file"
+            widget: "file"
+            hint: "Upload your CV (PDF format)"
+            media_folder: "assets/cv"
+            public_folder: "/assets/cv"
+
+          - label: "Work Experience"
+            name: "experience"
+            widget: "list"
+            fields:
+              - label: "Company"
+                name: "company"
+                widget: "string"
+
+              - label: "Role"
+                name: "role"
+                widget: "string"
+
+              - label: "Duration"
+                name: "duration"
+                widget: "string"
+                hint: "e.g., 2023 - Present"
