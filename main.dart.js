@@ -71022,7 +71022,7 @@ $0(){var s=0,r=A.L(t.H),q=1,p,o,n,m
 var $async$$0=A.M(function(a,b){if(a===1){p=b
 s=q}while(true)switch(s){case 0:q=3
 s=6
-return A.H(A.ahS("cv/wahyu_cv.pdf",B.C_),$async$$0)
+return A.H(A.ahS("assets/assets/cv/wahyu_cv.pdf",B.C_),$async$$0)
 case 6:q=1
 s=5
 break
