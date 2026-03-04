@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            /* slate-900 */
+            --card-bg: #1e293b;
+            /* slate-800 */
+            --text-main: #f8fafc;
+            /* slate-50 */
+            --text-muted: #cbd5e1;
+            /* slate-300 */
+            --primary: #6366f1;
+            /* indigo-500 */
+            --primary-hover: #4f46e5;
+            /* indigo-600 */
+            --border-color: #334155;
+            /* slate-700 */
+            --chip-bg: #334155;
+            /* slate-700 */
+            --chip-hover: #475569;
+            /* slate-600 */
+            --chip-active: #6366f1;
+            --chip-active-text: #ffffff;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --danger: #ef4444;
+            --danger-hover: #dc2626;
+            --success: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 10px;
+            animation: fadeInDown 0.5s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #a5b4fc, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Editor Section */
+        .editor-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 20px;
+            z-index: 10;
+            animation: fadeIn 0.6s ease;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-main);
+            padding: 16px;
+            font-size: 1.1rem;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 16px;
+            font-family: 'Inter', monospace;
+        }
+
+        textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-danger:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.7s ease;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            color: var(--text-muted);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            justify-content: center;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Chip Sections */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .category {
+            margin-bottom: 24px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            background: var(--chip-bg);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+
+        .chip:hover {
+            background: var(--chip-hover);
+            transform: scale(1.05);
+        }
+
+        .chip:active {
+            transform: scale(0.95);
+        }
+
+        /* Toggle Active State */
+        .chip.active {
+            background: var(--chip-active);
+            color: var(--chip-active-text);
+            border-color: var(--primary-hover);
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Negative Chip Active State */
+        .chip.negative-chip.active {
+            background: var(--danger);
+            border-color: var(--danger-hover);
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Category Input */
+        .category-input {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.5);
+            /* Semi transparan dari bg-color */
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            padding: 10px 14px;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .category-input:focus {
+            border-color: var(--primary);
+        }
+
+        /* Quick Parameters */
+        .quick-params {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .param-btn {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .param-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* History Section */
+        .history-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            margin-top: 24px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .history-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        /* Custom Scrollbar for history */
+        .history-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .history-list::-webkit-scrollbar-track {
+            background: var(--bg-color);
+            border-radius: 4px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        .history-item {
+            background: var(--bg-color);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .history-item:hover {
+            border-color: var(--primary);
+            color: var(--text-main);
+        }
+
+        .clear-history-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px dashed var(--border-color);
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .clear-history-btn:hover {
+            color: var(--danger);
+            border-color: var(--danger);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Copy Notification */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--success);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            z-index: 100;
+        }
+
+        .notification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .editor-section {
+                padding: 16px;
+            }
+
+            .category {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Studio Prompt AI</h1>
+            <p class="subtitle">Buat prompt deskriptif untuk generasi Gambar & Video dengan mudah.</p>
+        </header>
+
+        <div class="editor-section">
+            <textarea id="promptOutput"
+                placeholder="Prompt Anda akan muncul di sini... Ketik manual atau klik chip di bawah."></textarea>
+
+            <div class="quick-params">
+                <button class="param-btn" onclick="addParam('--ar 16:9')">16:9 (Landscape)</button>
+                <button class="param-btn" onclick="addParam('--ar 9:16')">9:16 (Portrait)</button>
+                <button class="param-btn" onclick="addParam('--ar 1:1')">1:1 (Square)</button>
+                <button class="param-btn" onclick="addParam('--v 6.0')">MJ v6.0</button>
+                <button class="param-btn" onclick="addParam('--stylize 250')">Stylize 250</button>
+                <button class="param-btn" onclick="addParam('--q 2')">High Quality</button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-primary" style="background: #10b981; margin-right: auto;"
+                    onclick="randomizePrompt()">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5">
+                        </path>
+                    </svg>
+                    Surprise Me!
+                </button>
+                <button class="btn-danger" onclick="clearPrompt()">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                        </path>
+                    </svg>
+                    Bersihkan
+                </button>
+                <button class="btn-primary" onclick="copyPrompt()">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    Salin & Simpan
+                </button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('image', event)">🎨 Gambar (Image Gen)</button>
+            <button class="tab-btn" onclick="switchTab('video', event)">🎥 Video (Video Gen)</button>
+        </div>
+
+        <!-- TAB GAMBAR -->
+        <div id="tab-image" class="tab-content active">
+
+            <!-- 1. Format + Medium -->
+            <div class="category" id="cat-image-1">
+                <div class="category-title">1. Format + Media</div>
+                <input type="text" class="category-input" placeholder="Ketik manual format tambahan..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="image-format">
+                    <div class="chip" onclick="toggleChip(this)" data-value="extreme realistic photo">Foto realistis
+                        ekstrim</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="oil painting">Lukisan cat minyak</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="vector illustration">Ilustrasi vektor</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="3D concept art">Seni konsep 3D</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="analog photography">Fotografi analog</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="pencil sketch">Sketsa pensil</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="polaroid photo">Foto polaroid</div>
+                </div>
+            </div>
+
+            <!-- 2. Subject + Age -->
+            <div class="category" id="cat-image-2">
+                <div class="category-title">2. Subjek & Usia</div>
+                <input type="text" class="category-input" placeholder="Ketik subjek spesifik (misal: a 30yo man)..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="image-subject">
+                    <div class="chip" onclick="toggleChip(this)" data-value="young woman in her 20s">Wanita muda (20-an)
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="middle-aged man">Pria paruh baya</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="elderly person">Orang lanjut usia</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="cute golden retriever dog">Anjing golden
+                        retriever lucu</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="cyberpunk cyborg">Cyborg cyberpunk</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="futuristic sports car">Mobil sport masa
+                        depan</div>
+                </div>
+            </div>
+
+            <!-- 3. Camera + Framing -->
+            <div class="category" id="cat-image-3">
+                <div class="category-title">3. Kamera & Pembingkaian (Framing)</div>
+                <input type="text" class="category-input" placeholder="Ketik pengaturan kamera spesifik..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="image-camera">
+                    <div class="chip" onclick="toggleChip(this)" data-value="close-up shot">Bidik wajah dekat (Close-up)
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="medium shot, waist up">Bidik sedang
+                        (Setengah badan)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="full body shot">Bidik seluruh badan (Full
+                        body)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="eye-level shot">Sejajar mata (Eye-level)
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="low angle shot">Dilihat dari bawah (Low
+                        angle)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="bird's eye view">Dilihat dari atas (Bird's
+                        eye)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="macro lens, bokeh">Lensa makro (Bokeh)
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Scene + Setting -->
+            <div class="category" id="cat-image-4">
+                <div class="category-title">4. Adegan (Scene) & Latar Belakang</div>
+                <input type="text" class="category-input" placeholder="Ketik latar belakang spesifik..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="image-scene">
+                    <div class="chip" onclick="toggleChip(this)" data-value="in a bustling cyberpunk city">Di kota
+                        cyberpunk yang sibuk</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="dark moody forest">Hutan gelap yang angker
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="bright modern office">Kantor modern yang
+                        cerah</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="cozy coffee shop at raining day">Kafe
+                        nyaman saat hujan</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="apocalyptic wasteland">Tanah tandus pasca
+                        kiamat</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="minimalist white studio background">Latar
+                        studio putih minimalis</div>
+                </div>
+            </div>
+
+            <!-- 5. Micro Detail -->
+            <div class="category" id="cat-image-5">
+                <div class="category-title">5. Detail Mikro (Pencahayaan & Tekstur)</div>
+                <input type="text" class="category-input" placeholder="Ketik detail lighting / tekstur spesifik..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="image-micro">
+                    <div class="chip" onclick="toggleChip(this)" data-value="cinematic lighting">Pencahayaan sinematik
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="golden hour lighting">Cahaya sore (Golden
+                        hour)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="highly detailed eyes">Mata sangat detail
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="natural skin texture with visible pores">
+                        Tekstur kulit natural dengan pori-pori</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="8k resolution, sharp focus">Resolusi 8K
+                        tajam</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="intricate costume details">Detail kostum
+                        rumit</div>
+                </div>
+            </div>
+
+            <!-- 6. Expression + Action -->
+            <div class="category" id="cat-image-6">
+                <div class="category-title">6. Ekspresi & Aksi</div>
+                <input type="text" class="category-input" placeholder="Ketik aksi/gerakan subjek..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="image-action">
+                    <div class="chip" onclick="toggleChip(this)" data-value="smiling warmly">Senyum hangat</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="looking intense at the camera">Menatap
+                        tajam ke kamera</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="laughing out loud">Tertawa lepas</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="running fast">Berlari kencang</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="drinking coffee">Sedang minum kopi</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="typing on a keyboard">Mengetik di keyboard
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Negative Cue -->
+            <div class="category" id="cat-image-7" style="border-color: rgba(239, 68, 68, 0.3);">
+                <div class="category-title" style="color: var(--danger);">7. Kata Kunci Negatif (Negative Cue)</div>
+                <input type="text" class="category-input" placeholder="Ketik benda/hal yang tidak ingin dimunculkan..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="image-negative">
+                    <div class="chip negative-chip" onclick="toggleChip(this)"
+                        data-value="--no ugly, extra fingers, mutated hands">Jelek, jari ekstra, tangan mutasi</div>
+                    <div class="chip negative-chip" onclick="toggleChip(this)"
+                        data-value="--no text, watermark, signature">Teks, watermark, tanda tangan</div>
+                    <div class="chip negative-chip" onclick="toggleChip(this)" data-value="--no blurry, out of focus">
+                        Buram, tidak fokus</div>
+                    <div class="chip negative-chip" onclick="toggleChip(this)"
+                        data-value="--no cartoon, 3d render, illustration">Kartun, render 3D, ilustrasi</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TAB VIDEO -->
+        <div id="tab-video" class="tab-content">
+
+            <!-- 1. Format + Medium -->
+            <div class="category" id="cat-video-1">
+                <div class="category-title">1. Format + Media</div>
+                <input type="text" class="category-input" placeholder="Ketik manual format tambahan..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="video-format">
+                    <div class="chip" onclick="toggleChip(this)" data-value="highly detailed cinematic 4K video">Video
+                        Sinematik 4K detail tinggi</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="ultra-realistic iPhone video still">
+                        Ultra-realistis iPhone video</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="vintage VHS footage">Rekaman VHS jadul
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="GoPro action camera video">Video kamera
+                        aksi GoPro</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="3D animation render">Render animasi 3D
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="nature documentary footage">Rekaman
+                        dokumenter alam</div>
+                </div>
+            </div>
+
+            <!-- 2. Subject + Age -->
+            <div class="category" id="cat-video-2">
+                <div class="category-title">2. Subjek & Usia</div>
+                <input type="text" class="category-input" placeholder="Ketik subjek spesifik (misal: a 30yo man)..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="video-subject">
+                    <div class="chip" onclick="toggleChip(this)" data-value="young woman in her 20s">Wanita muda (20-an)
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="middle-aged man">Pria paruh baya</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="elderly person">Orang lanjut usia</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="cute golden retriever dog">Anjing golden
+                        retriever lucu</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="cyberpunk cyborg">Cyborg cyberpunk</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="futuristic sports car">Mobil sport masa
+                        depan</div>
+                </div>
+            </div>
+
+            <!-- 3. Camera + Framing -->
+            <div class="category" id="cat-video-3">
+                <div class="category-title">3. Kamera & Pergerakan (Motion)</div>
+                <input type="text" class="category-input" placeholder="Ketik gerakan kamera spesifik..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="video-camera">
+                    <div class="chip" onclick="toggleChip(this)" data-value="static shot, waist-up">Kamera diam
+                        (Setengah badan)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="slow pan left">Geser lambat ke kiri (Pan
+                        left)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="slow push in">Maju perlahan (Slow push in)
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="orbit 360 degree shot">Memutar objek
+                        (Orbit/360 shot)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="hovering drone shot">Kamera drone melayang
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="handheld shaky camera">Kamera genggam
+                        (Handheld shaky)</div>
+                </div>
+            </div>
+
+            <!-- 4. Scene + Setting -->
+            <div class="category" id="cat-video-4">
+                <div class="category-title">4. Adegan (Scene) & Latar Belakang</div>
+                <input type="text" class="category-input" placeholder="Ketik latar belakang spesifik..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="video-scene">
+                    <div class="chip" onclick="toggleChip(this)" data-value="in a bustling cyberpunk city">Di kota
+                        cyberpunk yang sibuk</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="dark moody forest">Hutan gelap yang angker
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="bright modern office">Kantor modern yang
+                        cerah</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="cozy coffee shop at raining day">Kafe
+                        nyaman saat hujan</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="apocalyptic wasteland">Tanah tandus pasca
+                        kiamat</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="minimalist white studio background">Latar
+                        studio putih minimalis</div>
+                </div>
+            </div>
+
+            <!-- 5. Micro Detail -->
+            <div class="category" id="cat-video-5">
+                <div class="category-title">5. Detail Mikro & Dinamika</div>
+                <input type="text" class="category-input" placeholder="Ketik detail objek / lighting spesifik..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="video-micro">
+                    <div class="chip" onclick="toggleChip(this)" data-value="smooth slow motion">Gerak lambat mulus
+                        (Slowmo)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="clothes flowing gently in the wind">Pakaian
+                        berkibar tertiup angin</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="gentle rain drops">Rintik hujan perlahan
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="flickering neon lights">Lampu neon berkedip
+                        (Flickering)</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="natural skin texture with visible pores">
+                        Tekstur kulit natural terlihat</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="cinematic lighting, natural color grading">
+                        Gaya warna film pencahayaan sinematik</div>
+                </div>
+            </div>
+
+            <!-- 6. Expression + Action -->
+            <div class="category" id="cat-video-6">
+                <div class="category-title">6. Ekspresi & Aksi</div>
+                <input type="text" class="category-input" placeholder="Ketik aksi/gerakan subjek..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="video-action">
+                    <div class="chip" onclick="toggleChip(this)" data-value="smiling warmly at the camera">Senyum hangat
+                        ke kamera</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="looking around curiously">Melihat
+                        sekeliling penasaran</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="walking towards the camera">Berjalan pelan
+                        ke arah kamera</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="running away fast">Berlari kencang menjauh
+                    </div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="drinking a cup of coffee">Sedang minum
+                        secangkir kopi</div>
+                    <div class="chip" onclick="toggleChip(this)" data-value="typing furiously on a mechanical keyboard">
+                        Mengetik cepat di keyboard</div>
+                </div>
+            </div>
+
+            <!-- 7. Negative Cue -->
+            <div class="category" id="cat-video-7" style="border-color: rgba(239, 68, 68, 0.3);">
+                <div class="category-title" style="color: var(--danger);">7. Kata Kunci Negatif (Negative Cue)</div>
+                <input type="text" class="category-input" placeholder="Ketik benda/hal yang tidak ingin dimunculkan..."
+                    oninput="buildPrompt()">
+                <div class="chips-container" id="video-negative">
+                    <div class="chip negative-chip" onclick="toggleChip(this)"
+                        data-value="--no warped, morphed, jittering">Distorsi, berubah bentuk, jitter</div>
+                    <div class="chip negative-chip" onclick="toggleChip(this)" data-value="--no blurry, out of focus">
+                        Buram, tidak fokus</div>
+                    <div class="chip negative-chip" onclick="toggleChip(this)" data-value="--no text, watermark, logo">
+                        Teks, watermark, logo</div>
+                    <div class="chip negative-chip" onclick="toggleChip(this)"
+                        data-value="--no fast movement, choppy frame rate">Gerakan sangat cepat, patah-patah</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="history-section">
+            <div class="history-title">
+                <span>🕒 Riwayat Terakhir</span>
+                <button class="clear-history-btn" onclick="clearHistory()">Hapus Riwayat</button>
+            </div>
+            <div class="history-list" id="historyList">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Belum ada riwayat. Salin prompt untuk
+                    menyimpannya.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="copyNotification">Prompt berhasil disalin!</div>
+
+    <script>
+        const promptOutput = document.getElementById('promptOutput');
+
+        let activeTab = 'image';
+
+        function switchTab(tab, event) {
+            activeTab = tab;
+            // Update Buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (event) event.currentTarget.classList.add('active');
+
+            // Update Content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(`tab-${tab}`).classList.add('active');
+
+            buildPrompt(); // Rebuild setelah tab ganti
+        }
+
+        function toggleChip(element) {
+            // Toggle visual state
+            element.classList.toggle('active');
+            buildPrompt(); // Rebuild setelah chip ditekan
+        }
+
+        function buildPrompt() {
+            let promptParts = [];
+            let prefixTab = activeTab; // 'image' atau 'video'
+
+            // Logika menggabung kategori 1 sampai 6 (Positif)
+            for (let i = 1; i <= 6; i++) {
+                let catId = `cat-${prefixTab}-${i}`;
+                let catContainer = document.getElementById(catId);
+                if (!catContainer) continue;
+
+                let partsForCategory = [];
+
+                // Ambil string dari chip aktif
+                let activeChips = catContainer.querySelectorAll('.chip.active');
+                activeChips.forEach(chip => {
+                    let val = chip.getAttribute('data-value') || chip.innerText;
+                    if (val) partsForCategory.push(val);
+                });
+
+                // Ambil string dari text input manual
+                let textInput = catContainer.querySelector('.category-input');
+                if (textInput && textInput.value.trim() !== '') {
+                    partsForCategory.push(textInput.value.trim());
+                }
+
+                // Jika ada isi, gabungkan dengan koma untuk kategori ini, lalu masukkan ke master prompt
+                if (partsForCategory.length > 0) {
+                    promptParts.push(partsForCategory.join(", "));
+                }
+            }
+
+            let finalPositivePrompt = promptParts.join(",\n");
+
+            // Logika kategori 7 (Negatif)
+            let negativeCatContainer = document.getElementById(`cat-${prefixTab}-7`);
+            let negativeParts = [];
+            if (negativeCatContainer) {
+                // chip
+                let negativeChips = negativeCatContainer.querySelectorAll('.chip.active');
+                negativeChips.forEach(chip => {
+                    // Karena valuenya ada `--no ` di awal (tergantung implementasi Anda), 
+                    // namun mari asumsikan kita merge apa adanya sesuai data-value
+                    let val = chip.getAttribute('data-value') || chip.innerText;
+                    if (val) negativeParts.push(val);
+                });
+                // manual
+                let negativeInput = negativeCatContainer.querySelector('.category-input');
+                if (negativeInput && negativeInput.value.trim() !== '') {
+                    // Beri awalan "--no" otomatis kalau user nulis bebas (Opsional, tapi membantu)
+                    let text = negativeInput.value.trim();
+                    if (!text.startsWith("--no") && !text.startsWith("--ar") && !text.startsWith("--v")) {
+                        text = "--no " + text;
+                    }
+                    negativeParts.push(text);
+                }
+            }
+
+            // Merge positif dan negatif
+            if (finalPositivePrompt === '') {
+                promptOutput.value = negativeParts.join(", ");
+            } else {
+                if (negativeParts.length > 0) {
+                    promptOutput.value = finalPositivePrompt + "\n\n" + negativeParts.join(", ");
+                } else {
+                    promptOutput.value = finalPositivePrompt;
+                }
+            }
+        }
+
+        function clearPrompt() {
+            promptOutput.value = '';
+
+            // Bersihkan Chips
+            document.querySelectorAll('.chip').forEach(chip => {
+                chip.classList.remove('active');
+            });
+
+            // Bersihkan Inputs
+            document.querySelectorAll('.category-input').forEach(input => {
+                input.value = '';
+            });
+        }
+
+        function addParam(paramText) {
+            let currentText = promptOutput.value.trim();
+            if (currentText === '') {
+                promptOutput.value = paramText;
+            } else {
+                // Jangan tambah dua kali
+                if (!currentText.includes(paramText)) {
+                    promptOutput.value = currentText + " " + paramText;
+                }
+            }
+        }
+
+        function randomizePrompt() {
+            clearPrompt();
+
+            let prefixTab = activeTab;
+
+            // Loop khusus kategori SATU SAMPAI ENAM (positif saja, jangan acak yang negatif biar aman)
+            for (let i = 1; i <= 6; i++) {
+                let catId = `cat-${prefixTab}-${i}`;
+                let catContainer = document.getElementById(catId);
+                if (!catContainer) continue;
+
+                let chips = catContainer.querySelectorAll('.chip');
+                if (chips.length > 0) {
+                    // Beri probabilitas 80% untuk terpilih agar kadang ada kategori yang kosong
+                    if (Math.random() > 0.2) {
+                        let randomIndex = Math.floor(Math.random() * chips.length);
+                        chips[randomIndex].classList.add('active');
+                    }
+                }
+            }
+
+            buildPrompt();
+        }
+
+        function copyPrompt() {
+            let textToCopy = promptOutput.value.trim();
+            if (!textToCopy) return;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showNotification();
+                saveToHistory(textToCopy);
+            }).catch(err => {
+                console.error('Gagal menyalin:', err);
+                // Fallback copy
+                promptOutput.select();
+                document.execCommand('copy');
+                showNotification();
+                saveToHistory(textToCopy);
+            });
+        }
+
+        // HISTORY SYSTEM
+        const HISTORY_KEY = 'prompt_generator_history';
+
+        function saveToHistory(text) {
+            let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+
+            // Jangan simpan kalau sama persis dengan yang paling atas
+            if (history.length > 0 && history[0] === text) return;
+
+            history.unshift(text); // Masukkan ke paling awla
+            // Batasi max 10
+            if (history.length > 10) {
+                history = history.slice(0, 10);
+            }
+
+            localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+            renderHistory();
+        }
+
+        function renderHistory() {
+            let history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+            let listContainer = document.getElementById('historyList');
+
+            if (history.length === 0) {
+                listContainer.innerHTML = '<div style="color: var(--text-muted); font-size: 0.9rem;">Belum ada riwayat. Salin prompt untuk menyimpannya.</div>';
+                return;
+            }
+
+            listContainer.innerHTML = '';
+            history.forEach(item => {
+                let div = document.createElement('div');
+                div.className = 'history-item';
+                div.textContent = item;
+                div.title = "Klik untuk me-load riwayat ini ke kotak prompt";
+                div.onclick = function () {
+                    clearPrompt();
+                    promptOutput.value = item;
+                    // Note: Load history tidak merestore chip styling karena ini teks mentah yang mungkin sudah modifikasi
+                };
+                listContainer.appendChild(div);
+            });
+        }
+
+        function clearHistory() {
+            if (confirm('Hapus semua riwayat lokal?')) {
+                localStorage.removeItem(HISTORY_KEY);
+                renderHistory();
+            }
+        }
+
+        function showNotification() {
+            const notif = document.getElementById('copyNotification');
+            notif.classList.add('show');
+            setTimeout(() => {
+                notif.classList.remove('show');
+            }, 3000);
+        }
+
+        // Jalankan saat pertama kali buka Web
+        window.onload = function () {
+            renderHistory();
+        };
+    </script>
+
+</body>
+
+</html>
