@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Soundboard</title>
+    <!-- Use a modern Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --surface-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --danger-color: #ef4444;
+            --border-radius: 12px;
+            --transition-speed: 0.2s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .global-controls {
+            margin-bottom: 30px;
+        }
+
+        .btn-stop-all {
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-stop-all:hover {
+            background-color: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-stop-all:active {
+            transform: translateY(0);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .sound-pad {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border: 2px solid transparent;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            user-select: none;
+        }
+
+        .sound-pad:hover {
+            border-color: var(--surface-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Active/Playing states */
+        .sound-pad.playing {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-glow);
+            animation: pulse-border 1.5s infinite alternate;
+        }
+
+        .sound-pad.pressed {
+            transform: scale(0.98);
+            background-color: #2dd4bf;
+            /* A slight teal tint when physically pressed */
+            box-shadow: 0 0 15px rgba(45, 212, 191, 0.5);
+            border-color: #2dd4bf;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                box-shadow: 0 0 10px var(--accent-glow);
+            }
+
+            100% {
+                box-shadow: 0 0 25px var(--accent-glow);
+            }
+        }
+
+        .pad-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .pad-name {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            width: calc(100% - 100px);
+            outline: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .pad-name:focus {
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .pad-controls {
+            display: flex;
+            gap: 4px;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn:hover {
+            color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .control-btn.active {
+            color: var(--accent-color);
+            background-color: rgba(59, 130, 246, 0.15);
+        }
+
+        .control-btn.active-lock {
+            color: var(--danger-color);
+            background-color: rgba(239, 68, 68, 0.15);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .key-bind-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .key-display {
+            font-family: monospace;
+            background-color: #334155;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #cbd5e1;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .btn-bind {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .btn-bind:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-bind.binding {
+            background-color: var(--accent-color);
+            color: white;
+            animation: pulse-bg 1s infinite alternate;
+        }
+
+        @keyframes pulse-bg {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.7;
+            }
+        }
+
+        .file-status {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Utility text indicating to click */
+        .click-hint {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sound-pad:not(.binding-mode):hover .click-hint {
+            opacity: 1;
+        }
+
+        /* Overlay for binding state */
+        .binding-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .binding-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .binding-overlay h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Web Soundboard</h1>
+        <p class="subtitle">Local files, instant playback. Your sounds stay on your device.</p>
+    </div>
+
+    <div class="global-controls">
+        <button class="btn-stop-all" id="stopAllBtn" title="Shortcut: Escape">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="6" width="12" height="12"></rect>
+            </svg>
+            Stop All Audio (Esc)
+        </button>
+    </div>
+
+    <div class="grid-container" id="padContainer">
+        <!-- Pads will be generated by JS -->
+    </div>
+
+    <div class="binding-overlay" id="bindingOverlay">
+        <h2>Press any key to bind...</h2>
+        <p>Press 'Escape' to cancel</p>
+    </div>
+
+    <script>
+        const NUM_PADS = 8;
+        const padContainer = document.getElementById('padContainer');
+        const stopAllBtn = document.getElementById('stopAllBtn');
+        const bindingOverlay = document.getElementById('bindingOverlay');
+
+        // State
+        let padData = [];
+        let bindingPadId = null;
+        // Keep references to created object URLs to revoke them if replaced (memory management)
+        const activeObjectUrls = {};
+
+        // 1. Initialize Default Data (or load from localStorage)
+        function initData() {
+            const savedData = localStorage.getItem('soundboardData');
+            if (savedData) {
+                try {
+                    padData = JSON.parse(savedData);
+                    // Ensure we have exactly NUM_PADS by filling or trimming
+                    while (padData.length < NUM_PADS) {
+                        padData.push({ id: padData.length, name: `Sound ${padData.length + 1}`, key: `Digit${padData.length + 1}`, displayKey: `${padData.length + 1}`, isLocked: false, isLooping: false });
+                    }
+                    padData = padData.slice(0, NUM_PADS);
+
+                    // Migrate existing data to include new fields
+                    padData.forEach(p => {
+                        if (p.isLocked === undefined) p.isLocked = false;
+                        if (p.isLooping === undefined) p.isLooping = false;
+                    });
+                } catch (e) {
+                    console.error("Error parsing localStorage, resetting.", e);
+                    createDefaultData();
+                }
+            } else {
+                createDefaultData();
+            }
+        }
+
+        function createDefaultData() {
+            padData = Array.from({ length: NUM_PADS }, (_, i) => ({
+                id: i,
+                name: `Sound Pad ${i + 1}`,
+                // Default bindings: 1-8
+                key: `Digit${i + 1}`,
+                displayKey: `${i + 1}`,
+                isLocked: false,
+                isLooping: false
+            }));
+        }
+
+        function saveData() {
+            localStorage.setItem('soundboardData', JSON.stringify(padData));
+        }
+
+        // 2. Build the UI
+        function renderPads() {
+            padContainer.innerHTML = '';
+
+            padData.forEach((pad) => {
+                const padEl = document.createElement('div');
+                padEl.className = 'sound-pad';
+                padEl.id = `pad-${pad.id}`;
+
+                // We create an audio element for each pad. 
+                // It stays empty until a file is loaded.
+                const audioEl = document.createElement('audio');
+                audioEl.id = `audio-${pad.id}`;
+
+                // Track when audio stops naturally to remove playing class
+                audioEl.addEventListener('ended', () => {
+                    padEl.classList.remove('playing');
+                });
+                audioEl.addEventListener('pause', () => {
+                    // Ensure UI syncs if paused abruptly
+                    padEl.classList.remove('playing');
+                });
+
+                padEl.innerHTML = `
+                    <div class="click-hint">CLICK TO PLAY</div>
+                    <div class="pad-header">
+                        <input type="text" class="pad-name" value="${pad.name}" data-pad-id="${pad.id}">
+                        <div class="pad-controls">
+                            <button class="control-btn btn-loop ${pad.isLooping ? 'active' : ''}" title="Toggle Loop" data-pad-id="${pad.id}">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                            </button>
+                            <button class="control-btn btn-lock ${pad.isLocked ? 'active-lock' : ''}" title="Toggle Lock (Prevent Stop All)" data-pad-id="${pad.id}">
+                                ${pad.isLocked ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg>'}
+                            </button>
+                            <button class="control-btn" title="Load Audio File" onclick="document.getElementById('file-${pad.id}').click()">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <input type="file" id="file-${pad.id}" class="file-input" accept="audio/*">
+                    <div class="file-status" id="status-${pad.id}">No file loaded</div>
+                    <div class="key-bind-container">
+                        <span class="key-display" id="key-display-${pad.id}">${pad.displayKey}</span>
+                        <button class="btn-bind" data-pad-id="${pad.id}">Bind Key</button>
+                    </div>
+                `;
+
+                padEl.appendChild(audioEl);
+                padContainer.appendChild(padEl);
+
+                // Allow clicking the pad anywhere (except interactive elements inside) to play sound
+                padEl.addEventListener('mousedown', (e) => {
+                    // Don't trigger if clicking within header or keybind area
+                    if (!e.target.closest('.pad-header') && !e.target.closest('.key-bind-container')) {
+                        playSound(pad.id);
+                        padEl.classList.add('pressed');
+
+                        // Listen for mouseup on window to catch drags outside
+                        const mouseUpHandler = () => {
+                            padEl.classList.remove('pressed');
+                            window.removeEventListener('mouseup', mouseUpHandler);
+                        };
+                        window.addEventListener('mouseup', mouseUpHandler);
+                    }
+                });
+            });
+
+            attachEventListeners();
+        }
+
+        // 3. Event Listeners
+        function attachEventListeners() {
+            // Name changes
+            document.querySelectorAll('.pad-name').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const id = parseInt(e.target.dataset.padId);
+                    padData[id].name = e.target.value;
+                    saveData();
+                });
+                // Prevent playing sound when typing Space in input
+                input.addEventListener('keydown', (e) => { e.stopPropagation(); });
+            });
+
+            // File Loading
+            document.querySelectorAll('.file-input').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+
+                    const id = parseInt(e.target.id.split('-')[1]);
+                    const audioEl = document.getElementById(`audio-${id}`);
+                    const statusEl = document.getElementById(`status-${id}`);
+
+                    // Revoke old URL if it exists to prevent memory leaks
+                    if (activeObjectUrls[id]) {
+                        URL.revokeObjectURL(activeObjectUrls[id]);
+                    }
+
+                    // Create new object URL and assign
+                    const objectUrl = URL.createObjectURL(file);
+                    activeObjectUrls[id] = objectUrl;
+                    audioEl.src = objectUrl;
+
+                    statusEl.textContent = file.name;
+                    statusEl.style.color = '#34d399'; // Emerald color to indicate loaded
+                });
+            });
+
+            // Bind Key Buttons
+            document.querySelectorAll('.btn-bind').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(e.target.dataset.padId);
+                    startBinding(id);
+                });
+            });
+
+            // Loop Toggles
+            document.querySelectorAll('.btn-loop').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(e.currentTarget.dataset.padId);
+                    padData[id].isLooping = !padData[id].isLooping;
+
+                    // Update Audio Element right away if loaded
+                    const audioEl = document.getElementById(`audio-${id}`);
+                    if (audioEl) audioEl.loop = padData[id].isLooping;
+
+                    // Update UI
+                    if (padData[id].isLooping) {
+                        e.currentTarget.classList.add('active');
+                    } else {
+                        e.currentTarget.classList.remove('active');
+                    }
+                    saveData();
+                });
+            });
+
+            // Lock Toggles
+            document.querySelectorAll('.btn-lock').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(e.currentTarget.dataset.padId);
+                    padData[id].isLocked = !padData[id].isLocked;
+
+                    // Update UI
+                    if (padData[id].isLocked) {
+                        e.currentTarget.classList.add('active-lock');
+                        e.currentTarget.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>';
+                    } else {
+                        e.currentTarget.classList.remove('active-lock');
+                        e.currentTarget.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg>';
+                    }
+                    saveData();
+                });
+            });
+        }
+
+        // 4. Input Handling Logic
+
+        function startBinding(padId) {
+            bindingPadId = padId;
+            bindingOverlay.classList.add('active');
+
+            // Add a temporary class to the pad for visual context if we didn't use an overlay
+            // document.getElementById(`pad-${padId}`).classList.add('binding-mode');
+        }
+
+        function endBinding() {
+            bindingPadId = null;
+            bindingOverlay.classList.remove('active');
+        }
+
+        // Global Keydown Listener
+        window.addEventListener('keydown', (e) => {
+            // Don't intercept if user is typing in an input field (unless they are binding)
+            if (e.target.tagName === 'INPUT' && e.target.type === 'text' && bindingPadId === null) {
+                return;
+            }
+
+            // 1. Check if we are in binding mode
+            if (bindingPadId !== null) {
+                e.preventDefault(); // Prevent default browser actions during binding
+
+                if (e.code === 'Escape') {
+                    // Cancel binding
+                    endBinding();
+                    return;
+                }
+
+                // Save new binding
+                const displayKey = formatKeyDisplay(e);
+                padData[bindingPadId].key = e.code;
+                padData[bindingPadId].displayKey = displayKey;
+
+                // Update UI
+                document.getElementById(`key-display-${bindingPadId}`).textContent = displayKey;
+
+                saveData();
+                endBinding();
+                return;
+            }
+
+            // 2. Normal playback mode
+
+            // Global Stop All
+            if (e.code === 'Escape') {
+                e.preventDefault();
+                stopAllAudio();
+                return;
+            }
+
+            // Check if key matches any pad
+            const matchedPad = padData.find(p => p.key === e.code);
+            if (matchedPad) {
+                // IMPORTANT: Prevent default browser behavior (e.g., Spacebar scrolling)
+                e.preventDefault();
+                playSound(matchedPad.id);
+
+                // Add visual pressed state purely for keyboard feedback
+                const padEl = document.getElementById(`pad-${matchedPad.id}`);
+                padEl.classList.add('pressed');
+            }
+        });
+
+        // Remove pressed visual state on keyup
+        window.addEventListener('keyup', (e) => {
+            const matchedPad = padData.find(p => p.key === e.code);
+            if (matchedPad) {
+                const padEl = document.getElementById(`pad-${matchedPad.id}`);
+                padEl.classList.remove('pressed');
+            }
+        });
+
+        // 5. Audio Playback Logic
+
+        function playSound(padId) {
+            const audioEl = document.getElementById(`audio-${padId}`);
+            const padEl = document.getElementById(`pad-${padId}`);
+            const pad = padData.find(p => p.id === padId) || padData[padId];
+
+            if (audioEl.src && audioEl.src !== window.location.href) {
+                // If looping and playing, toggle pause instead
+                if (pad.isLooping && !audioEl.paused) {
+                    audioEl.pause();
+                    audioEl.currentTime = 0;
+                    padEl.classList.remove('playing');
+                    return;
+                }
+
+                // Apply loop property dynamically
+                audioEl.loop = pad.isLooping;
+
+                audioEl.currentTime = 0;
+                padEl.classList.add('playing');
+
+                // Attempt to play, catch promise to prevent browser errors if no user interaction yet
+                audioEl.play().catch(error => {
+                    console.error("Playback failed (likely needs DOM interaction first):", error);
+                    padEl.classList.remove('playing');
+                });
+            } else {
+                // Visual feedback that it's empty
+                const statusEl = document.getElementById(`status-${padId}`);
+                statusEl.style.color = '#ef4444'; // Red blink
+                setTimeout(() => statusEl.style.color = 'var(--text-secondary)', 300);
+            }
+        }
+
+        function stopAllAudio() {
+            padData.forEach(pad => {
+                if (pad.isLocked) return; // Skip locked pads
+
+                const audioEl = document.getElementById(`audio-${pad.id}`);
+                const padEl = document.getElementById(`pad-${pad.id}`);
+                if (audioEl && !audioEl.paused) {
+                    audioEl.pause();
+                    audioEl.currentTime = 0;
+                    padEl.classList.remove('playing');
+                }
+            });
+
+            // Visual feedback for global stop button
+            stopAllBtn.style.transform = 'scale(0.95)';
+            setTimeout(() => stopAllBtn.style.transform = '', 150);
+        }
+
+        stopAllBtn.addEventListener('click', stopAllAudio);
+
+        // Helper: Format key string for display
+        function formatKeyDisplay(e) {
+            let keyStr = e.key;
+            // Clean up names for display
+            if (keyStr === ' ') keyStr = 'Space';
+            if (keyStr.length === 1) keyStr = keyStr.toUpperCase();
+
+            // If we fall back to Code, clean it up
+            if (!keyStr || keyStr === 'Unidentified') {
+                keyStr = e.code.replace('Key', '').replace('Digit', '');
+            }
+            return keyStr;
+        }
+
+        // Bootstrap Application
+        initData();
+        renderPads();
+    </script>
+</body>
+
+</html>
