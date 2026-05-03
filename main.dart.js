@@ -71150,7 +71150,7 @@ A.adS.prototype={
 $3(a,b,c){return this.a.x7()},
 $S:57}
 A.x0.prototype={
-aj(){return new A.NZ(A.a(["All","App","Game"],t.s),null,null)}}
+aj(){return new A.NZ(A.a(["All","App","Game","Other"],t.s),null,null)}}
 A.NZ.prototype={
 ar(){this.aT()
 this.a_J()},

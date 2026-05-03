@@ -27,6 +27,11 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
+    sortable_fields:
+      fields: ["title", "priority", "category"]
+      default:
+        field: "priority"
+        direction: "Descending"
     fields:
       - label: "Title"
         name: "title"
@@ -38,6 +43,22 @@ collections:
         widget: "image"
         hint: "Main image for project card"
         required: true
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["App", "Game", "Other"]
+        default: "Other"
+        hint: "Project category for filtering"
+
+      - label: "Priority"
+        name: "priority"
+        widget: "number"
+        default: 50
+        value_type: "int"
+        min: 0
+        max: 100
+        hint: "Sorting priority (0-100). Higher = shown first"
 
       - label: "Role"
         name: "role"
