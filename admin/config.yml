@@ -27,11 +27,7 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
-    sortable_fields:
-      fields: ["title", "priority", "category"]
-      default:
-        field: "priority"
-        direction: "Descending"
+    sortable_fields: ["title", "priority", "category"]
     fields:
       - label: "Title"
         name: "title"
@@ -88,6 +84,40 @@ collections:
           label: "Technology"
           name: "tech"
           widget: "string"
+
+      - label: "Header Video (YouTube)"
+        name: "header_video"
+        widget: "string"
+        required: false
+        hint: "Main YouTube video shown prominently at top (e.g., https://www.youtube.com/watch?v=xxxxx)"
+
+      - label: "Other Videos"
+        name: "other_videos"
+        widget: "list"
+        required: false
+        hint: "Additional YouTube videos for this project"
+        fields:
+          - label: "Video Title"
+            name: "title"
+            widget: "string"
+          - label: "YouTube URL"
+            name: "url"
+            widget: "string"
+            hint: "e.g., https://www.youtube.com/watch?v=xxxxx"
+
+      - label: "Other Links"
+        name: "other_links"
+        widget: "list"
+        required: false
+        hint: "External links (App Store, website, GitHub, etc.)"
+        fields:
+          - label: "Link Title"
+            name: "title"
+            widget: "string"
+            hint: "e.g., App Store, Play Store, Live Demo, GitHub"
+          - label: "URL"
+            name: "url"
+            widget: "string"
 
       - label: "Description"
         name: "body"
