@@ -26,6 +26,9 @@ responsibility: >-
 
 
   Deployment & QA: Managed the release process to TestFlight, ensured game stability, and conducted independent testing before the test release.
+tech_stack:
+  - Unity
+  - Procreate
 header_video: https://youtu.be/qqSXeSUK3dk
 other_videos: []
 other_links:
