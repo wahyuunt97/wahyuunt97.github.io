@@ -5,7 +5,7 @@ role: Researcher, Animator, Programmer
 timeline: Apr 2024 - Jun 2024
 outcome: Functional iOS App, HIG Compliant
 responsibility: Managed the programmer team, conducted research on student productivity, and developed interactive Lottie animations to gamify task management.
-priority: 85
+priority: 110
 category: App
 tech_stack:
   - SwiftUI

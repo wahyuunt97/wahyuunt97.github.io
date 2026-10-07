@@ -5,7 +5,7 @@ role: Researcher, Programmer
 timeline: July 2024 - Aug 2024
 outcome: 52 Feedback Points, 0% Crash Rate on TestFlight
 responsibility: Conducted research on Macbook gaming audience, developed the game from scratch using Unity, and coordinated the programming team.
-priority: 90
+priority: 110
 category: Game
 tech_stack:
   - Unity SDK

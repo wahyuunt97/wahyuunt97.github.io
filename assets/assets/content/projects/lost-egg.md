@@ -5,7 +5,7 @@ role: Lead Team
 timeline: Jul 2017 - Apr 2019
 outcome: Published/Acquired, Compfest 9 Participant
 responsibility: Led the team, designed the puzzle mechanics, and developed the core physics system for this 10-level game.
-priority: 55
+priority: 110
 category: Game
 tech_stack:
   - Construct 2

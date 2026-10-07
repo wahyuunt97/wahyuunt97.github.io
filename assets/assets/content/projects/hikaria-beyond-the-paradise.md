@@ -2,7 +2,7 @@
 title: Hikaria Beyond The Paradise
 thumbnail: /assets/images/projects/hikaria-tumbnail.png
 category: Other
-priority: 10
+priority: 110
 role: Video Mapping & Techincal Support
 timeline: Jul 2025 - Mar 2026
 outcome: Release & Maintenance 7 Projection Mapping Site, Get 2.432 visitors in 2025
