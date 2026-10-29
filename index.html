@@ -1,59 +1,185 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wahyu Untoro · Remote Game Developer (Unity, C#) &amp; Mobile Developer</title>
+  <meta name="description" content="Game developer open to remote work. 35 shipped and prototyped projects since 2016: Unity and Construct 2 games, AR/VR, projection mapping, and iOS and Flutter apps. Based in Bali, UTC+8.">
+  <meta name="author" content="Wahyu Untoro">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://wahyuunt97.github.io/">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="favicon-180.png">
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Wahyu Untoro">
+  <meta property="og:url" content="https://wahyuunt97.github.io/">
+  <meta property="og:title" content="Wahyu Untoro · Remote Game Developer (Unity, C#)">
+  <meta property="og:description" content="Game developer open to remote work. Unity games, AR/VR, projection mapping and mobile apps since 2016. Based in Bali, UTC+8.">
+  <meta property="og:image" content="https://wahyuunt97.github.io/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wahyu Untoro portfolio: name, headline and a fan of project cards">
+  <meta property="profile:first_name" content="Wahyu">
+  <meta property="profile:last_name" content="Untoro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wahyu Untoro · Remote Game Developer (Unity, C#)">
+  <meta name="twitter:description" content="Game developer open to remote work. Unity games, AR/VR, projection mapping and mobile apps since 2016.">
+  <meta name="twitter:image" content="https://wahyuunt97.github.io/og.png">
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description"
-    content="Mobile & Web Developer crafting beautiful, high-performance applications. Check out my projects and let's collaborate!">
-  <meta name="keywords" content="Portfolio, Flutter Developer, Mobile Developer, Web Developer, Wahyu Untoro">
-
-  <!-- Open Graph / Facebook / WhatsApp -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wahyuunt97.github.io/wahyu_portfolio/">
-  <meta property="og:title" content="Wahyu Untoro Portfolio">
-  <meta property="og:description"
-    content="Mobile & Web Developer crafting beautiful, high-performance applications. Check out my projects and let's collaborate!">
-  <meta property="og:image" content="icons/Icon-512.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://wahyuunt97.github.io/wahyu_portfolio/">
-  <meta property="twitter:title" content="Wahyu Untoro Portfolio">
-  <meta property="twitter:description"
-    content="Mobile & Web Developer crafting beautiful, high-performance applications. Check out my projects and let's collaborate!">
-  <meta property="twitter:image" content="icons/Icon-512.png">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Wahyu Portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <title>Wahyu Untoro Portfolio</title>
-  <link rel="manifest" href="manifest.json">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://wahyuunt97.github.io/",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Wahyu Untoro",
+      "jobTitle": "Game Developer",
+      "worksFor": { "@type": "Organization", "name": "WHY Production" },
+      "description": "Game developer open to remote work, building games, AR/VR, projection mapping and mobile apps since 2016.",
+      "email": "mailto:wahyuuntoro54@gmail.com",
+      "url": "https://wahyuunt97.github.io/",
+      "image": "https://wahyuunt97.github.io/assets/assets/images/profile_picture.png",
+      "address": { "@type": "PostalAddress", "addressRegion": "Bali", "addressCountry": "ID" },
+      "knowsAbout": ["Game development", "Unity", "C#", "Construct 2", "AR", "VR", "Projection mapping", "SwiftUI", "Swift", "Flutter", "React Native", "Kotlin"],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "Apple Developer Institute for Games Graduate" },
+        { "@type": "EducationalOccupationalCredential", "name": "Unity Certified Associate" }
+      ],
+      "sameAs": ["https://wahyuunt97.itch.io", "https://github.com/wahyuunt97"]
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+  </script>
+  <script type="module" src="app.js"></script>
 </head>
-
 <body>
-  <script src="flutter_bootstrap.js" async></script>
-</body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="wahyuunt97, back to top"><span class="prompt">~/</span>wahyuunt97</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="motion-toggle" type="button" aria-pressed="false" data-motion-toggle>
+      <span class="motion-toggle__dot" aria-hidden="true"></span><span data-motion-label>Pause motion</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="cmd" aria-hidden="true"><span class="cmd__sigil">$</span> whoami</p>
+        <h1 id="hero-title" class="hero__name">Wahyu<br>Untoro</h1>
+        <p class="typer">
+          <span class="typer__sigil" aria-hidden="true">&gt;</span>
+          <span class="sr-only">Crafting immersive realities and engaging games through 8+ years of rapid, user-driven development.</span>
+          <span class="typer__text" aria-hidden="true" data-typer></span><span class="typer__caret" aria-hidden="true"></span>
+        </p>
+        <p class="status"><span class="status__dot" aria-hidden="true"></span>Open to remote work · Game developer, Unity &amp; C# · Bali, UTC+8</p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="mailto:wahyuuntoro54@gmail.com?subject=Remote%20role%20for%20Wahyu">Email me about a role</a>
+          <a class="btn btn--line" href="cv/wahyu_cv.pdf" download>Download CV</a>
+          <a class="btn btn--ghost" href="#projects" data-all-count>See every project</a>
+        </div>
+      </div>
+
+      <div class="deck" data-deck>
+        <div class="deck__stage" data-deck-stage>
+          <p class="deck__status" data-deck-status role="status">Loading the deck…</p>
+        </div>
+        <div class="deck__panel">
+          <div class="deck__row">
+            <button class="btn btn--solid btn--deal" type="button" data-shuffle disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.5c2 0 3.2 1 4.5 3l2 3c1.3 2 2.5 3 4.5 3H21m0 0-3-3m3 3-3 3M3 17h3.5c1.2 0 2.1-.4 2.9-1.1M21 7h-3.5c-1.2 0-2.1.4-2.9 1.1M21 7l-3-3m3 3-3 3"/></svg>
+              Shuffle &amp; deal
+            </button>
+            <button class="btn btn--ghost" type="button" data-deck-reset hidden>Back to selected</button>
+          </div>
+          <div class="deck__dealt" data-dealt hidden>
+            <p class="deck__dealt-label"><span class="cmd__sigil">&gt;</span> dealt</p>
+            <button class="deck__dealt-title" type="button" data-dealt-open></button>
+          </div>
+          <div class="deck__picks" data-picks-wrap>
+            <p class="deck__dealt-label"><span class="cmd__sigil">&gt;</span> selected</p>
+            <ul class="picks" data-picks></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-head">
+        <p class="cmd" aria-hidden="true"><span class="cmd__sigil">$</span> ls ./projects <span class="cmd__flag" data-filter-flag></span></p>
+        <h2 id="projects-title">Projects</h2>
+        <div class="filters" role="group" aria-label="Filter projects by category" data-filters>
+          <button type="button" aria-pressed="true" data-filter="All">All <span data-count="All"></span></button>
+          <button type="button" aria-pressed="false" data-filter="Game">Games <span data-count="Game"></span></button>
+          <button type="button" aria-pressed="false" data-filter="App">Apps <span data-count="App"></span></button>
+          <button type="button" aria-pressed="false" data-filter="Other">Other <span data-count="Other"></span></button>
+        </div>
+      </div>
+
+      <div class="grid" data-grid aria-live="polite" aria-busy="true"></div>
+      <div class="grid-state" data-grid-state hidden></div>
+      <div class="more">
+        <button class="btn btn--line" type="button" data-more hidden aria-controls="projects"></button>
+      </div>
+    </section>
+
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="experience__head">
+        <p class="cmd" aria-hidden="true"><span class="cmd__sigil">$</span> tail experience.log</p>
+        <h2 id="experience-title">Experience</h2>
+        <ul class="creds" data-creds></ul>
+        <div class="stack">
+          <p class="cmd" aria-hidden="true"><span class="cmd__sigil">$</span> cat stack.txt</p>
+          <h3 class="sr-only">Tools and skills</h3>
+          <dl class="stack__list">
+            <div><dt>Games</dt><dd>Unity, C#, Construct 2, LDtk</dd></div>
+            <div><dt>XR &amp; light</dt><dd>Unity XR, RealityKit, SceneKit, MadMapper, After Effects</dd></div>
+            <div><dt>Mobile</dt><dd>SwiftUI, Swift, Flutter, React Native, Kotlin</dd></div>
+          </dl>
+        </div>
+      </div>
+      <ol class="timeline" data-timeline></ol>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <p class="cmd" aria-hidden="true"><span class="cmd__sigil">$</span> open contact</p>
+      <h2 id="contact-title" class="contact__title">Hiring a remote game developer?<br><span>If you have an idea, I can develop it fast. Working remotely from Bali, UTC+8.</span></h2>
+      <ul class="contact__links" data-links>
+        <li><a href="mailto:wahyuuntoro54@gmail.com">wahyuuntoro54@gmail.com</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Wahyu Untoro · Bali, Indonesia</p>
+    <p>Project data from the portfolio CMS. Card deck drawn with three.js.</p>
+  </footer>
+
+  <dialog class="sheet" data-sheet aria-labelledby="sheet-title">
+    <div class="sheet__inner">
+      <button class="sheet__close" type="button" data-sheet-close aria-label="Close project details">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div data-sheet-body></div>
+    </div>
+  </dialog>
+</body>
 </html>

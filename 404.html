@@ -1,59 +1,26 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description"
-    content="Mobile & Web Developer crafting beautiful, high-performance applications. Check out my projects and let's collaborate!">
-  <meta name="keywords" content="Portfolio, Flutter Developer, Mobile Developer, Web Developer, Wahyu Untoro">
-
-  <!-- Open Graph / Facebook / WhatsApp -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wahyuunt97.github.io/wahyu_portfolio/">
-  <meta property="og:title" content="Wahyu Untoro Portfolio">
-  <meta property="og:description"
-    content="Mobile & Web Developer crafting beautiful, high-performance applications. Check out my projects and let's collaborate!">
-  <meta property="og:image" content="icons/Icon-512.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://wahyuunt97.github.io/wahyu_portfolio/">
-  <meta property="twitter:title" content="Wahyu Untoro Portfolio">
-  <meta property="twitter:description"
-    content="Mobile & Web Developer crafting beautiful, high-performance applications. Check out my projects and let's collaborate!">
-  <meta property="twitter:image" content="icons/Icon-512.png">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Wahyu Portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <title>Wahyu Untoro Portfolio</title>
-  <link rel="manifest" href="manifest.json">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Wahyu Untoro</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+  <main class="contact" style="min-height: 100svh; align-content: center; border-top: 0">
+    <p class="cmd"><span class="cmd__sigil">$</span> cd <span data-path></span></p>
+    <p class="cmd" style="color: var(--y)">404: no such file or directory</p>
+    <h1 class="contact__title">This page isn't here.<br><span>Old links from the previous site don't exist anymore. Every project is on the home page now.</span></h1>
+    <ul class="contact__links">
+      <li><a href="/">Home page</a></li>
+      <li><a href="/#projects">All projects</a></li>
+    </ul>
+  </main>
+  <script>document.querySelector('[data-path]').textContent = location.pathname</script>
 </body>
-
 </html>

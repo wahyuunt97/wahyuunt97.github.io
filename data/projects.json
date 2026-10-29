@@ -1,0 +1,916 @@
+{
+ "projects": [
+  {
+   "slug": "hikaria-beyond-the-paradise",
+   "title": "Hikaria Beyond The Paradise",
+   "category": "Other",
+   "priority": 110,
+   "role": "Video Mapping & Techincal Support",
+   "timeline": "Jul 2025 - Mar 2026",
+   "outcome": [
+    "Release & Maintenance 7 Projection Mapping Site, Get 2.432 visitors in 2025"
+   ],
+   "responsibility": [
+    "Create and Maintenance 7 project mapping spot in Hikaria"
+   ],
+   "tech": [
+    "After Effect",
+    "Madmapper"
+   ],
+   "thumbnail": "assets/assets/images/projects/hikaria-tumbnail.png",
+   "video": "https://www.youtube.com/watch?v=a2_N5WBtYlg",
+   "videos": [
+    {
+     "title": "Hikaria Development",
+     "url": "https://www.instagram.com/p/DXTQBdQAV42/"
+    }
+   ],
+   "links": [
+    {
+     "title": "Instagram",
+     "url": "https://www.instagram.com/hikaria.id/"
+    },
+    {
+     "url": "https://hikaria.id",
+     "title": "Official Web"
+    }
+   ],
+   "body": "Hikaria is a groundbreaking light show brand created through a collaboration between Timedoor Indonesia and Run-Hun Sha. Set in the beautiful landscape of Bali, Hikaria blends traditional storytelling with cutting-edge technology, offering an immersive experience where light, culture, and nature come together.\n\nWith Timedoor Indonesia’s expertise in digital innovation and Run-Hun Sha’s mastery in immersive entertainment, Hikaria delivers a unique visual experience through advanced projection mapping and interactive visuals, creating a magical journey for audiences of all ages.",
+   "completeness": 12.8
+  },
+  {
+   "slug": "2gether",
+   "title": "2Gether",
+   "category": "Game",
+   "priority": 99,
+   "role": "Solo Developer",
+   "timeline": "Mar 2026 - May 2026",
+   "outcome": [
+    "Original Art & Assets: Availability of original visual assets that support the atmosphere of isolation and tension consistent with the creative vision.",
+    "Functional Tension Mechanic: Implementation of a responsive and technically accurate safe distance system.",
+    "Playable TestFlight Build: The final product is a game ready for public testing through the TestFlight platform."
+   ],
+   "responsibility": [
+    "Art & Visual Production: Independently created all visual assets, characters, and environments (fire, branches, backgrounds).",
+    "Core Programming: Wrote code for character movement, fire detection logic, and the weight and distance systems for branches.",
+    "Game Design & Balancing: Determined safe distance parameters to ensure the \"fear of distance\" and \"fear of falling\" mechanics felt balanced for players.",
+    "Deployment & QA: Managed the release process to TestFlight, ensured game stability, and conducted independent testing before the test release."
+   ],
+   "tech": [
+    "Unity",
+    "Procreate"
+   ],
+   "thumbnail": "assets/assets/images/projects/screenshot-2026-05-14-at-1.55.26%25E2%2580%25AFpm.png",
+   "video": "https://youtu.be/qqSXeSUK3dk",
+   "videos": [],
+   "links": [
+    {
+     "title": "testflight",
+     "url": "https://testflight.apple.com/join/WpWwEyY3"
+    }
+   ],
+   "body": "2gether is an emotionally charged game about a mother monkey's struggle to escape a fire to protect her baby. The game features a unique tension-balance mechanic: players must maintain an ideal distance from her baby to prevent the tree branch from breaking under the weight (too close), but also to ensure the baby doesn't stop moving out of fear (too far).",
+   "completeness": 11.3
+  },
+  {
+   "slug": "sanda-tisha",
+   "title": "Petualangan Sanda Tisha",
+   "category": "Game",
+   "priority": 110,
+   "role": "Game Developer",
+   "timeline": "2026",
+   "outcome": [
+    "Adventure Game"
+   ],
+   "responsibility": [
+    "Developed the game available on itch.io"
+   ],
+   "tech": [
+    "Game Engine"
+   ],
+   "thumbnail": "assets/assets/images/projects/sanda-tisha.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://wahyuunt97.itch.io/petualangan-sandal-tisha"
+    }
+   ],
+   "body": "## Project Overview\nYou play as a lone kid’s rubber clog searching for your lost pair in Petualangan Sanda Tisha.",
+   "completeness": 2.9
+  },
+  {
+   "slug": "night-ride",
+   "title": "Night Ride",
+   "category": "Game",
+   "priority": 110,
+   "role": "Game Developer",
+   "timeline": "2026",
+   "outcome": [
+    "Survival Game"
+   ],
+   "responsibility": [
+    "Developed the game available on itch.io"
+   ],
+   "tech": [
+    "Game Engine"
+   ],
+   "thumbnail": "assets/assets/images/projects/night-ride.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://kenthekenobi.itch.io/night-ride"
+    }
+   ],
+   "body": "## Project Overview\nWhat awaits you at midnight when you’re riding home? Night Ride is a thrilling survival game on itch.io.",
+   "completeness": 3
+  },
+  {
+   "slug": "spatia",
+   "title": "Spatia! - Where Space Meets Intelligence",
+   "category": "App",
+   "priority": 100,
+   "role": "Project Manager, Programmer",
+   "timeline": "Oct 2024 - Nov 2024",
+   "outcome": [
+    "4.8/5 rating on App Store, 0% crash rate, Top 5 Selection"
+   ],
+   "responsibility": [
+    "Fixed scanning features, added functionality for item selection, resolved UI bugs, and managed the project schedule."
+   ],
+   "tech": [
+    "SwiftUI",
+    "RoomPlan",
+    "SpriteKit",
+    "SwiftData"
+   ],
+   "thumbnail": "assets/assets/images/projects/spatia.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nSpatia! is an innovative iOS and iPadOS application that empowers non-interior designers to analyze and optimize their living spaces. Using advanced RoomPlan and SpriteKit technology, Spatia! enables users to scan and create a digital floor plan of their rooms, helping them arrange furniture for various activities to maximize comfort and functionality.\n\n### Key Features\n- **Smart Room Scanning**: Generate digital floor plans instantly using RoomPlan.\n- **Furniture Arrangement**: Visualize furniture placement and optimization.\n- **Intuitive Analysis**: Get recommendations for maximizing space utility.\n\n### Achievements\n- **Top 5 Team**: Selected as one of the top 5 teams from Apple Developer Academy Batam for government showcase.\n- **High Stability**: Achieved 0% crash rate on the last 3 updates.",
+   "completeness": 7.2
+  },
+  {
+   "slug": "molecule-mastery",
+   "title": "Molecule Mastery",
+   "category": "App",
+   "priority": 80,
+   "role": "Mobile App Developer",
+   "timeline": "Jun 2024 - July 2024",
+   "outcome": [
+    "Released on App Store, Validated by Students"
+   ],
+   "responsibility": [
+    "Developed dynamic AR atom displays using RealityKit and SceneKit, optimizing for both iPad and iPhone."
+   ],
+   "tech": [
+    "SwiftUI",
+    "RealityKit",
+    "SceneKit",
+    "AR"
+   ],
+   "thumbnail": "assets/assets/images/projects/molecular_mastery_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://wahyuunt97.itch.io/molecule-mastery"
+    }
+   ],
+   "body": "## Project Overview\n\nMolecule Mastery gamifies chemistry learning by combining the 'Atom' card game with Augmented Reality. Players visualize chemical elements in 3D, making abstract concepts tangible and competitive.\n\n### features\n- **AR Visualization**: See atoms and molecules in real-world space.\n- **Multiplayer**: Competitive gameplay to motivate learning.\n- **Cross-Device**: Optimized for both iPhone and iPad screens.",
+   "completeness": 6.6
+  },
+  {
+   "slug": "the-legend-of-axel",
+   "title": "The Legend of Axel",
+   "category": "Game",
+   "priority": 99,
+   "role": "Game Programmer",
+   "timeline": "Jan 2026 - Current",
+   "outcome": [
+    "Seamless Asset Integration, Playable Alpha/Beta Demo (On Progress)"
+   ],
+   "responsibility": [
+    "Game Development Engineering & Gameplay Consulting"
+   ],
+   "tech": [
+    "Unity",
+    "LDTK"
+   ],
+   "thumbnail": "assets/assets/images/projects/main-display.jpg",
+   "video": "https://www.youtube.com/watch?v=MG2Etv0AUuE",
+   "videos": [],
+   "links": [],
+   "body": "## Project: The Legend of Axel\n\nKolaborasi: Trilogi Animation Studio (Bali) & Solo Game Developer\n\n### 1. Deskripsi Game\n\nThe Legend of Axel mengisahkan Axel, seorang penjelajah antariksa yang mendarat darurat di Bumi kuno yang terdistorsi oleh kekuatan tak dikenal. Untuk kembali ke rumah, ia harus menjelajahi dunia ini, mengalahkan para penjaganya, dan mengungkap kebenaran di balik transformasi planet tersebut.",
+   "completeness": 7.8
+  },
+  {
+   "slug": "eternal-night-shift",
+   "title": "Eternal Night Shift: The Night Servant",
+   "category": "Game",
+   "priority": 110,
+   "role": "Researcher, Programmer",
+   "timeline": "July 2024 - Aug 2024",
+   "outcome": [
+    "52 Feedback Points, 0% Crash Rate on TestFlight"
+   ],
+   "responsibility": [
+    "Conducted research on Macbook gaming audience, developed the game from scratch using Unity, and coordinated the programming team."
+   ],
+   "tech": [
+    "Unity SDK",
+    "C#"
+   ],
+   "thumbnail": "assets/assets/images/projects/tuyul.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://wahyuunt97.itch.io/eternal-night-shift"
+    }
+   ],
+   "body": "## Project Overview\n\nEternal Night Shift: The Night Servant is a Macbook game that tells the story of a 'tuyul' (mythical creature) striving for freedom from servitude. Inspired by the creators' own experiences, it reflects a desire to work more peacefully without the pressure of constantly overproducing to achieve prosperity.\n\n### Gameplay\n- **Stealth Mechanics**: Navigate through shadows to avoid detection.\n- **Narrative Driven**: A reflective journey about freedom and labor.\n- **Mac Optimization**: Tailored controls and performance for Macbook architecture.\n\n### Achievements\n- **Community Reception**: Received positive feedback from 52 exhibition attendees.\n- **Rapid Development**: Completed stable version within 25 working days.",
+   "completeness": 7.4
+  },
+  {
+   "slug": "koto-bluesharks",
+   "title": "Koto Bluesharks",
+   "category": "App",
+   "priority": 95,
+   "role": "Programmer",
+   "timeline": "Sep 2024 - Nov 2024",
+   "outcome": [
+    "Released on Google Play & App Store, 50+ Downloads in Month 1"
+   ],
+   "responsibility": [
+    "Developed the app using Flutter, integrated APIs from the WordPress website, and connected the new membership system, ensuring seamless functionality."
+   ],
+   "tech": [
+    "Flutter",
+    "WordPress API",
+    "Membership API"
+   ],
+   "thumbnail": "assets/assets/images/projects/bluesharks_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nKoto Bluesharks is a mobile application for a Japanese rugby club that transitioned from a WordPress-based website to a fully functional mobile experience. The app enhances fan engagement by providing exclusive content and a dedicated membership system.\n\n### Key Features\n- **News & Updates**: Integrated directly with the club's WordPress site.\n- **Membership Level**: Exclusive access for club members.\n- **Fan Engagement**: Wallpapers and interactive content.\n\n### Achievements\n- **Seamless Integration**: Successfully connected legacy WordPress data with modern mobile UI.\n- **Rapid Adoption**: Reached 50+ downloads within the first month of release.",
+   "completeness": 6.3
+  },
+  {
+   "slug": "cativity",
+   "title": "Cativity",
+   "category": "App",
+   "priority": 110,
+   "role": "Researcher, Animator, Programmer",
+   "timeline": "Apr 2024 - Jun 2024",
+   "outcome": [
+    "Functional iOS App, HIG Compliant"
+   ],
+   "responsibility": [
+    "Managed the programmer team, conducted research on student productivity, and developed interactive Lottie animations to gamify task management."
+   ],
+   "tech": [
+    "SwiftUI",
+    "SwiftData",
+    "WidgetKit",
+    "Lottie"
+   ],
+   "thumbnail": "assets/assets/images/projects/cativity_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nCativity helps students become more time-conscious by caring for a digital cat that represents their daily activities. Completing scheduled tasks keeps the cat happy, gamifying the productivity experience.\n\n### Key Features\n- **Live Activities**: Track task progress directly from the lock screen.\n- **Interactive Cat**: Lottie animations respond to user's productivity status.\n- **Smart Reminders**: Context-aware notifications to keep students on track.",
+   "completeness": 5.6
+  },
+  {
+   "slug": "grun",
+   "title": "GRUN - Optimize Your Run",
+   "category": "App",
+   "priority": 85,
+   "role": "Researcher, Lead Programmer",
+   "timeline": "Jun 2024 - July 2024",
+   "outcome": [
+    "Released on TestFlight, MusicKit Integration"
+   ],
+   "responsibility": [
+    "Led the development team, researched runner needs, and implemented MusicKit integration to sync running pace with music."
+   ],
+   "tech": [
+    "SwiftUI",
+    "HealthKit",
+    "MusicKit",
+    "WatchKit"
+   ],
+   "thumbnail": "assets/assets/images/projects/grun_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nGRUN is a watchOS application designed to enhance running efficiency by keeping runners in Heart Rate Zone 2. It uses personalized music to guide the running pace, providing real-time feedback for a healthier run.\n\n### Key Features\n- **Zone 2 Training**: Monitors HealthKit data to keep heart rate in the optimal zone.\n- **Music Pacing**: Adjusts or selects music via MusicKit to match the target cadence.\n- **Watch First**: Designed primarily for Apple Watch for a phone-free experience.",
+   "completeness": 5.6
+  },
+  {
+   "slug": "cars",
+   "title": "Cars - Offline IoT Integration",
+   "category": "App",
+   "priority": 80,
+   "role": "iOS Programmer",
+   "timeline": "Jun 2023 - Nov 2023",
+   "outcome": [
+    "Released on TestFlight, First Offline IoT App"
+   ],
+   "responsibility": [
+    "Developed the core logic to calculate RAW sensor values from BLE devices and convert them into readable data without internet access."
+   ],
+   "tech": [
+    "Swift",
+    "UIKit",
+    "BluetoothCore (BLE)",
+    "IoT"
+   ],
+   "thumbnail": "assets/assets/images/projects/cars_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nCars is an iOS application that operates entirely offline, connecting to IoT sensors via Bluetooth Low Energy (BLE). It processes raw sensor data locally on the device, ensuring reliability in areas with poor internet connectivity.\n\n### Technical Challanges\n- **Offline Processing**: All data parsing and calculation happens on-device.\n- **BLE Stability**: Maintaining stable connections with low-energy sensors.",
+   "completeness": 5.4
+  },
+  {
+   "slug": "secret-bitess",
+   "title": "Secret Bitess - Anonymous Food Review",
+   "category": "App",
+   "priority": 85,
+   "role": "Researcher, UI/UX Designer",
+   "timeline": "Feb 2024 - Apr 2024",
+   "outcome": [
+    "Mockup completed, HIG Compliant Design"
+   ],
+   "responsibility": [
+    "Conducted user research, created high-fidelity mockups using Sketch, and designed the interface according to Apple's Human Interface Guidelines (HIG)."
+   ],
+   "tech": [
+    "Sketch",
+    "UI/UX Research"
+   ],
+   "thumbnail": "assets/assets/images/projects/secret_bitess_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nFinding delicious food in Batam is often reliant on word-of-mouth, with honest negative reviews being scarce due to social pressure. Secret Bitess solves this by providing a safe platform for anonymous, honest food reviews.\n\n### Design Philosophy\n- **Anonymity First**: UI designed to protect user identity while encouraging sharing.\n- **Apple Standard**: Strictly follows apple's Human Interface Guidelines (HIG) for a native feel.\n- **User Centric**: Based on research into user hesitation regarding online reviews.",
+   "completeness": 4.9
+  },
+  {
+   "slug": "appmu-indonesia",
+   "title": "Appmu Indonesia",
+   "category": "App",
+   "priority": 75,
+   "role": "Mobile App Developer",
+   "timeline": "Mar 2022 - Feb 2023",
+   "outcome": [
+    "Served 10+ Clients, Native & Cross-Platform Support"
+   ],
+   "responsibility": [
+    "Developed the Android Native version and led the conversion to React Native to accelerate deployment for multiple clients."
+   ],
+   "tech": [
+    "Kotlin",
+    "React Native",
+    "Android Studio"
+   ],
+   "thumbnail": "assets/assets/images/projects/appmu_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nAppmu Indonesia is a white-label e-commerce platform that enables businesses to launch their own branded mobile apps in under a month.\n\n### Role & Impact\n- **Hybrid Migration**: Migrated core features from Native Android (Kotlin) to React Native.\n- **Scalability**: Designed the architecture to support easy reskinning and configuration for over 10 different clients.",
+   "completeness": 4.6
+  },
+  {
+   "slug": "healing-pod",
+   "title": "Healing Pod Game",
+   "category": "Game",
+   "priority": 70,
+   "role": "Game Programmer",
+   "timeline": "Aug 2023 - Oct 2023",
+   "outcome": [
+    "Used in Therapy Devices, VR Implementation"
+   ],
+   "responsibility": [
+    "Optimized assets for VR performance and integrated with IoT devices for physical therapy feedback."
+   ],
+   "tech": [
+    "Unity XR",
+    "IoT"
+   ],
+   "thumbnail": "assets/assets/images/projects/healingpod_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://wahyuunt97.itch.io/healing-pod-v2"
+    }
+   ],
+   "body": "## Project Overview\n\nA specialized VR game suite for physical therapy rehab (children with polio, stroke recovery). Connected to a 'Healing Pod' device, it uses game interactions to encourage therapeutic movements in an immersive environment.",
+   "completeness": 4.6
+  },
+  {
+   "slug": "pande-putri-go",
+   "title": "Pande Putri Go",
+   "category": "App",
+   "priority": 75,
+   "role": "Mobile App Developer",
+   "timeline": "Sep 2022 - Nov 2023",
+   "outcome": [
+    "Released on Play Store & App Store, 5.0 Rating"
+   ],
+   "responsibility": [
+    "Developed the cross-platform application using React Native, managing feature updates and bug fixes for a seamless shopping experience."
+   ],
+   "tech": [
+    "React Native",
+    "Redux",
+    "E-Commerce"
+   ],
+   "thumbnail": "assets/assets/images/projects/ppgo_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nPande Putri Go is a comprehensive e-commerce solution for a large supermarket chain in Denpasar. It allows customers to browse products, manage orders, and shop from the comfort of their homes.\n\n### Key Metrics\n- **Cross Platform**: Simultaneous iOS and Android release.\n- **User Satisfaction**: Achieved a perfect 5.0 rating on the App Store.",
+   "completeness": 4.5
+  },
+  {
+   "slug": "goa-lawah",
+   "title": "Goa Lawah",
+   "category": "Game",
+   "priority": 50,
+   "role": "Game Programmer",
+   "timeline": "Jan 2017",
+   "outcome": [
+    "Finished in 72 Hours, Released on Playstore"
+   ],
+   "responsibility": [
+    "Solo programmer responsible for all code and game mechanics, collaborating with designers on visuals and gameplay."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/goalawah_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nGoa Lawah is an Android-based adventure game created for the Global Game Jam 2017 ('Waves' theme). Players control a bat navigating a mysterious cave that shifts between light and dark, avoiding obstacles in a challenging environment.\n\n### Development Speed\n- **72 Hours**: Built entirely from scratch during the hackathon.\n- **Solo Dev**: Handled all programming duties independently.",
+   "completeness": 3.6
+  },
+  {
+   "slug": "menunggu-ayah-pulang",
+   "title": "Menunggu Ayah Pulang",
+   "category": "Game",
+   "priority": 55,
+   "role": "Game Programmer",
+   "timeline": "Jan 2019",
+   "outcome": [
+    "Finished in 72 Hours, Air Console Integration"
+   ],
+   "responsibility": [
+    "Integrated the Air Console API to create a seamless local multiplayer experience within a 72-hour game jam timeframe."
+   ],
+   "tech": [
+    "Construct 2",
+    "Air Console API"
+   ],
+   "thumbnail": "assets/assets/images/projects/ayam_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nA fast-paced multiplayer game where players sort chickens into coops. Built for Global Game Jam 2019 using Air Console, allowing smartphones to be used as controllers for a shared web screen.",
+   "completeness": 3.1
+  },
+  {
+   "slug": "love-pager-panic",
+   "title": "Love Pager Panic",
+   "category": "Game",
+   "priority": 110,
+   "role": "Game Developer",
+   "timeline": "2026",
+   "outcome": [
+    "GMTK Game Jam 2026 Submission"
+   ],
+   "responsibility": [
+    "Developed the game available on itch.io"
+   ],
+   "tech": [
+    "Game Engine"
+   ],
+   "thumbnail": "assets/assets/images/projects/love-pager.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://pollyzain.itch.io/love-pager-panic"
+    }
+   ],
+   "body": "## Project Overview\nLove Pager Panic is a visual novel game submitted to GMTK Game Jam 2026. Playable in browser.",
+   "completeness": 3
+  },
+  {
+   "slug": "mage-hourglass",
+   "title": "Mage Hourglass",
+   "category": "Game",
+   "priority": 110,
+   "role": "Game Developer",
+   "timeline": "2026",
+   "outcome": [
+    "GMTK Game Jam 2026 Submission"
+   ],
+   "responsibility": [
+    "Developed the game available on itch.io"
+   ],
+   "tech": [
+    "Game Engine"
+   ],
+   "thumbnail": "assets/assets/images/projects/mage-hourglass.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://angelina-rianti.itch.io/magehourglass"
+    }
+   ],
+   "body": "## Project Overview\nMage Hourglass is an action game submitted to GMTK Game Jam 2026. Available to play in browser.",
+   "completeness": 3
+  },
+  {
+   "slug": "dream-inc",
+   "title": "Dream Inc",
+   "category": "Game",
+   "priority": 110,
+   "role": "Game Developer",
+   "timeline": "2026",
+   "outcome": [
+    "Card Game"
+   ],
+   "responsibility": [
+    "Developed the game available on itch.io"
+   ],
+   "tech": [
+    "Game Engine"
+   ],
+   "thumbnail": "assets/assets/images/projects/dream-inc.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://wahyuunt97.itch.io/dream-inc"
+    }
+   ],
+   "body": "## Project Overview\nSebuah game deck-building di mana kamu bertugas sebagai Pengendali Mimpi. Playable in browser.",
+   "completeness": 2.9
+  },
+  {
+   "slug": "meettryoshka",
+   "title": "Meettryoshka",
+   "category": "Game",
+   "priority": 110,
+   "role": "Game Developer",
+   "timeline": "2026",
+   "outcome": [
+    "Playable in browser"
+   ],
+   "responsibility": [
+    "Developed the game available on itch.io"
+   ],
+   "tech": [
+    "Game Engine"
+   ],
+   "thumbnail": "assets/assets/images/projects/meettryoshka.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://wahyuunt97.itch.io/meettryoshka"
+    }
+   ],
+   "body": "## Project Overview\nMeettryoshka is a game project published on itch.io. Playable directly in the browser.",
+   "completeness": 2.9
+  },
+  {
+   "slug": "momkey",
+   "title": "Momkey",
+   "category": "Game",
+   "priority": 110,
+   "role": "Game Developer",
+   "timeline": "2026",
+   "outcome": [
+    "Adventure Game"
+   ],
+   "responsibility": [
+    "Developed the game available on itch.io"
+   ],
+   "tech": [
+    "Game Engine"
+   ],
+   "thumbnail": "assets/assets/images/projects/momkey.jpg",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://wahyuunt97.itch.io/momkey"
+    }
+   ],
+   "body": "## Project Overview\nYou play as a mother monkey evading danger, experiencing a profound sense of isolation.",
+   "completeness": 2.9
+  },
+  {
+   "slug": "sky-clash",
+   "title": "Sky Clash",
+   "category": "Game",
+   "priority": 110,
+   "role": "Game Developer",
+   "timeline": "2026",
+   "outcome": [
+    "PC Game"
+   ],
+   "responsibility": [
+    "Developed the game available on itch.io"
+   ],
+   "tech": [
+    "Game Engine"
+   ],
+   "thumbnail": "assets/assets/images/projects/sky-clash.png",
+   "video": null,
+   "videos": [],
+   "links": [
+    {
+     "title": "itch.io",
+     "url": "https://wahyuunt97.itch.io/sky-clash"
+    }
+   ],
+   "body": "## Project Overview\nA relaxing, atmospheric kite-flying adventure where the sky is your canvas and the wind is your guide.",
+   "completeness": 2.9
+  },
+  {
+   "slug": "maranatha-trove",
+   "title": "Maranatha Trove - Escape Room",
+   "category": "Game",
+   "priority": 65,
+   "role": "Game Programmer",
+   "timeline": "Apr 2023 - Aug 2023",
+   "outcome": [
+    "9 Web Games, Database Integration"
+   ],
+   "responsibility": [
+    "Translated client requirements into 9 distinct mini-games for university enrollment and integrated them with the student database."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/maranatha_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nA web-based escape room experience designed to help prospective students discover their ideal major at Maranatha University. Players solve puzzles to unlock clues, making the admission process interactive and engaging.",
+   "completeness": 2.8
+  },
+  {
+   "slug": "timedoor-design-system",
+   "title": "Timedoor Design System",
+   "category": "App",
+   "priority": 60,
+   "role": "Supervisor",
+   "timeline": "Sep 2023 - Nov 2023",
+   "outcome": [
+    "React Native Package, Modern Design Update"
+   ],
+   "responsibility": [
+    "Supervised the R&D team, organized task distribution, and managed the development schedule for this internal component library."
+   ],
+   "tech": [
+    "React Native"
+   ],
+   "thumbnail": "assets/assets/images/projects/tds_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nA comprehensive React Native starter project providing reusable UI components (buttons, text fields, etc.) to accelerate development speed and ensure design consistency across Timedoor's mobile applications.",
+   "completeness": 2.8
+  },
+  {
+   "slug": "shimajiro",
+   "title": "Shimajiro Education Game",
+   "category": "Game",
+   "priority": 70,
+   "role": "Game Programmer",
+   "timeline": "2018 - 2020",
+   "outcome": [
+    "10 Games Released, 3 Years Continuity"
+   ],
+   "responsibility": [
+    "Collaborated with designers to release a steady stream of high-quality educational web games for the Shimajiro brand over 3 years."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/shimajiro_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nA series of official educational web games for the popular character 'Shimajiro'. These accessible browser games helped teach children various cognitive and motor skills through fun, interactive gameplay.",
+   "completeness": 2.7
+  },
+  {
+   "slug": "cerita-rakyat-bali",
+   "title": "Game Cerita Rakyat Bali",
+   "category": "Game",
+   "priority": 60,
+   "role": "Game Programmer",
+   "timeline": "Sep 2019 - Dec 2019",
+   "outcome": [
+    "Research Project, 3 Interactive Stories"
+   ],
+   "responsibility": [
+    "Developed the game based on research specifications to test the effectiveness of game-based English learning for elementary students."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/cerita_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nAn educational tool featuring three Balinese folktales adapted into interactive English lessons. Used as research material by Undhiksa University to evaluate gamified language learning.",
+   "completeness": 2.7
+  },
+  {
+   "slug": "lipi-poleng",
+   "title": "Lipi Poleng Tanah Lot",
+   "category": "Game",
+   "priority": 60,
+   "role": "Game Programmer",
+   "timeline": "Sep 2020 - Oct 2021",
+   "outcome": [
+    "Portrait Mode, Custom Voice Over"
+   ],
+   "responsibility": [
+    "Designed an interactive vertical-orientated game for mobile, coordinating with researchers and voice talent for educational accuracy."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/lipi_poleng_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nAn English learning game for children centered around the 'Lipi Poleng' folklore of Tanah Lot. Features voice-overs to assist in listening comprehension and portrait mode gameplay for mobile ease of use.",
+   "completeness": 2.7
+  },
+  {
+   "slug": "mini-depo",
+   "title": "MiNi Depo",
+   "category": "App",
+   "priority": 55,
+   "role": "Assistant Designer",
+   "timeline": "Jan 2021 - Mar 2021",
+   "outcome": [
+    "V2 App Update, Released on Playstore"
+   ],
+   "responsibility": [
+    "Revised designs based on client feedback, clarified design details for developers, and created additional assets for the V2 update."
+   ],
+   "tech": [
+    "Adobe XD"
+   ],
+   "thumbnail": "assets/assets/images/projects/minidepo_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nMiNi Depo is a marketplace app for building materials, connecting users with suppliers for efficient online transactions. This project focused on refining the user experience for the version 2 release.",
+   "completeness": 2.7
+  },
+  {
+   "slug": "lost-egg",
+   "title": "Lost Egg",
+   "category": "Game",
+   "priority": 110,
+   "role": "Lead Team",
+   "timeline": "Jul 2017 - Apr 2019",
+   "outcome": [
+    "Published/Acquired, Compfest 9 Participant"
+   ],
+   "responsibility": [
+    "Led the team, designed the puzzle mechanics, and developed the core physics system for this 10-level game."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/lost_egg_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nA physics-based puzzle game where players must strategically remove blocks to land an egg safely. Its challenging mechanics attracted publisher interest and led to its acquisition.",
+   "completeness": 2.5
+  },
+  {
+   "slug": "bedugul-forest",
+   "title": "Bedugul Forest",
+   "category": "Game",
+   "priority": 55,
+   "role": "Game Programmer",
+   "timeline": "Jan 2019 - Mar 2019",
+   "outcome": [
+    "Grade A Thesis, STMIK Primakara"
+   ],
+   "responsibility": [
+    "Designed and developed the game as a final thesis project, including problem identification and complete documentation."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/bedugul_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nAn adventure game introducing the Panca Yadnya Bedugul Museum. Players guide a monkey through obstacles to collect prayer items, serving as an interactive cultural learning medium.",
+   "completeness": 2.5
+  },
+  {
+   "slug": "pesta-olahraga",
+   "title": "Menuju Pesta Olahraga Asia",
+   "category": "Game",
+   "priority": 50,
+   "role": "Game Programmer",
+   "timeline": "Jun 2018 - Aug 2018",
+   "outcome": [
+    "100+ Downloads, Leaderboard Integration"
+   ],
+   "responsibility": [
+    "Developed three mini-games (climbing, running, football) and implemented secure leaderboard functionality."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/rtga_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nCreated to celebrate the 2018 Asian Games, this app features three competitive mini-games. Players compete for high scores on a global leaderboard, fostering a festive and competitive spirit.",
+   "completeness": 2.5
+  },
+  {
+   "slug": "ayo-menabung",
+   "title": "Ayo Menabung",
+   "category": "Game",
+   "priority": 60,
+   "role": "Game Programmer",
+   "timeline": "Mar 2022 - Aug 2022",
+   "outcome": [
+    "Released on Playstore"
+   ],
+   "responsibility": [
+    "Translated client requests into features, designing a 5-stage game loop that rewards collecting recyclables."
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/ayo_menabung_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nTeaches financial literacy and environmental awareness. Kids collect virtual garbage to earn money for in-game skins, reinforcing the value of saving and recycling in a fun way.",
+   "completeness": 2.4
+  },
+  {
+   "slug": "aksara",
+   "title": "Aksara",
+   "category": "Game",
+   "priority": 65,
+   "role": "Game Designer & Programmer",
+   "timeline": "Aug 2019",
+   "outcome": [
+    "Top 10 DILo Festival 2019"
+   ],
+   "responsibility": [
+    "Designed the game concept and developed all technical aspects,"
+   ],
+   "tech": [
+    "Construct 2"
+   ],
+   "thumbnail": "assets/assets/images/projects/aksara_detail.png",
+   "video": null,
+   "videos": [],
+   "links": [],
+   "body": "## Project Overview\n\nAn educational game where players defend against meteors by writing correct Balinese characters. Created for the DILo Festival hackathon, it innovatively uses motion detection to teach traditional script.",
+   "completeness": 2.2
+  }
+ ]
+}
